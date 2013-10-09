@@ -77,15 +77,16 @@ else:
 # DO NOT CHANGE THE FOLLOWING LINE
 print "Problem 5 solution follows:"
 
-numlines=6
+facto=10
 multi=1
-for i in range(numlines):
-    for j in range(numlines):
+for i in range(facto):
+    multi=1
+    x= facto
+    x = facto-i
+    for j in range(x):
          multi= multi*(j+1)
     print multi
     
-
-
 ###
 ### Problem 6
 ###
