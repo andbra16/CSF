@@ -104,11 +104,6 @@ for i in range(n):
          facto= facto*(j+1)/1.0
 print add
 
-
-#for j in range(n):
-    #facto= facto*(j+1)/1.0
-    #add= add+(1/facto)
-#print add
 ###
 ### Collaboration
 ###
@@ -120,6 +115,4 @@ print add
 ### Reflection
 ###
 
-# ... Write how long this assignment took you, including doing all the readings
-# ... and tutorials linked to from the homework page. Did the readings, tutorials,
-# ... and lecture contain everything you needed to complete this assignment?
+#took about 3 hours to complete
