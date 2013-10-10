@@ -80,11 +80,11 @@ print "Problem 5 solution follows:"
 n=10
 facto=1
 for i in range(n):
-    facto=1
+    facto=1 #resets facto after it has gone through second for loop
     x= n
-    x = n-i
+    x = n-i #reduces the range of x by 1 each time
     for j in range(x):
-         facto= facto*(j+1)
+         facto= facto*(j+1) #creates the factorial
     print facto
 
 ###
@@ -93,10 +93,10 @@ for i in range(n):
 
 # DO NOT CHANGE THE FOLLOWING LINE
 print "Problem 6 solution follows:"
-
+facto=1
 add=1
 for i in range(n):
-    add = add+(1/facto)
+    add = add+(1/facto) #adds the previous factorial to the new one
     facto=1
     x= n
     x = n-i
