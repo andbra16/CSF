@@ -46,10 +46,10 @@ for i in range(2, 11): # runs the loop for numbers 1-10
 # DO NOT CHANGE THE FOLLOWING LINE
 print "Problem 3 solution follows:"
 
-n = 2
+n = 10
 triangular = 0
-for i in range (n):
-    triangular = n
+for i in range (n+1):
+    triangular = triangular+i
 print "Triangular number", n, "via loop:", triangular
 print "Triangular number", n, "via formula:", n*(n+1)/2
 
@@ -60,7 +60,7 @@ print "Triangular number", n, "via formula:", n*(n+1)/2
 # DO NOT CHANGE THE FOLLOWING LINE
 print "Problem 4 solution follows:"
 
-n=6
+n=10
 multi=1
 for i in range(n):
     multi= multi*(i+1) #makes multi equal the previous multi times the running count
@@ -77,16 +77,16 @@ else:
 # DO NOT CHANGE THE FOLLOWING LINE
 print "Problem 5 solution follows:"
 
-facto=10
-multi=1
-for i in range(facto):
-    multi=1
-    x= facto
-    x = facto-i
+n=10
+facto=1
+for i in range(n):
+    facto=1
+    x= n
+    x = n-i
     for j in range(x):
-         multi= multi*(j+1)
-    print multi
-    
+         facto= facto*(j+1)
+    print facto
+
 ###
 ### Problem 6
 ###
@@ -94,8 +94,21 @@ for i in range(facto):
 # DO NOT CHANGE THE FOLLOWING LINE
 print "Problem 6 solution follows:"
 
-# ... write your code and comments here (and remove this line)
+add=1
+for i in range(n):
+    add = add+(1/facto)
+    facto=1
+    x= n
+    x = n-i
+    for j in range(x):
+         facto= facto*(j+1)/1.0
+print add
 
+
+#for j in range(n):
+    #facto= facto*(j+1)/1.0
+    #add= add+(1/facto)
+#print add
 ###
 ### Collaboration
 ###
