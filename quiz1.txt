@@ -1,2 +1,7 @@
 #graded by David Burke
 #burdav22
+
+from lab2 import *
+
+for i in range(n):
+  print "Hello World"
