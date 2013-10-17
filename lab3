@@ -1,0 +1,21 @@
+n= 6
+series= "adfa"
+
+if series == "fibonnaci":
+    a=1
+    b=0
+    for i in range(n):
+        c = a + b
+        print c
+        a=b
+        b=c
+elif series == "sum":
+    number=0
+    sums=0
+    for i in range(n+1):
+        number= 3*i
+        sums= number+sums
+    print sums
+else:
+    print "Invalid string"
+        
