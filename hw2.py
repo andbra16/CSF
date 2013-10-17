@@ -21,7 +21,7 @@ from hw2_test import* #imports variable n from hw2_test
 
 count = 1 
 total = 0
-while n > 0: # if n is great than 0 it enters  the loop
+while n > 0: 
     total = total + count #adds the previous sum to the running count
     count = count+1 # establishes a running count
     n = n-1 
@@ -35,7 +35,7 @@ print total
 print "Problem 2 solution follows:"
 
 
-for i in range(2, 11): # runs the loop for numbers 1-10
+for i in range(2, 11): # runs the loop for numbers 2-10
     i = i/1.0 #turns i into type float
     print 1/i
 
