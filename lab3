@@ -1,5 +1,5 @@
 n= 6
-series= "adfa"
+series= "sum"
 
 #if the string(series) is fibonnaci 
 if series == "fibonnaci":
@@ -19,8 +19,8 @@ elif series == "sum":
     sums=0
     
     #finds the sum of the multiples of 3 to the nth number
-    for i in range(n+1):
-        number= 3*i
+    for i in range(n): 
+        number= 3*(i+1) #(i+1) because i starts at 0
         sums= number+sums
     print sums
     
