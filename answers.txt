@@ -33,8 +33,8 @@ AT-content: 0.568993851852
 
 Collaboration:
 
-...
+No one
 
 Reflection:
 
-I learned how to use the command prompt to run a program. 
+This assignment taught me a great deal about the process of learning and understanding someone else's code. It also taught me how important comments are for other people to understand your program.  
