@@ -1,5 +1,5 @@
-Name: ...
-Evergreen Login: ...
+Name: Brandon Anderson
+Evergreen Login: andbra16
 Computer Science Foundations
 Programming as a Way of Life
 Fall 2013
@@ -19,15 +19,17 @@ Problem 1:
 
 Problem 2:
 
-...
+GC-content: 0.43029262963
 
 Problem 3:
 
-...
+I received an error because the program tried to use the variable "linenum" that was not defined yet because it was commented out by me. linenum = linenum+1 -- the program uses linenum as a variable that updates itself +1 everytime it goes through the loop. Therefore, linenum must be defined before that line in order to operate.
+
+If I commented out gc_count= 0, the program would get an error just like linenum above because the program uses gc_count= gc_count+1. Therefore, gc_count must be defined before that line just like linenum needed to be defined before it updated itself.
 
 Problem 4:
 
-...
+AT-content: 0.568993851852
 
 Collaboration:
 
@@ -35,4 +37,4 @@ Collaboration:
 
 Reflection:
 
-...
+I learned how to use the command prompt to run a program. 
