@@ -13,6 +13,23 @@ the ellipses (the three dots) with your answers.
 At the end, you will turn in this file along with your modified
 dna_analysis.py program.
 
+Problem 1:
+
+(No answers in this file.)
+
+Problem 2:
+
+GC-content: 0.430292666667
+
+Problem 3:
+
+I received an error because the program tried to use the variable "linenum" that was not defined yet because it was commented out by me. linenum = linenum+1 -- the program uses linenum as a variable that updates itself +1 everytime it goes through the loop. Therefore, linenum must be defined before that line in order to operate.
+
+If I commented out gc_count= 0, the program would get an error just like linenum above because the program uses gc_count= gc_count+1. Therefore, gc_count must be defined before that line just like linenum needed to be defined before it updated itself.
+
+Problem 4:
+
+AT-content: 0.568993851852
 
 Problem 5:
 
@@ -44,45 +61,3 @@ None
 Reflection:
 
 I learned a great deal about debugging. I had no clue that the GC content calculated in Homework3 was intented to not work in Homework4. So, I spent a great deal of time wonder why the AT/GC contents were wrong before I realized that the wrong variable was being used in the denominator. 
-=======
-Name: Brandon Anderson
-Evergreen Login: andbra16
-Computer Science Foundations
-Programming as a Way of Life
-Fall 2013
-Homework 3 
-
-For each problem that requires a written answer, write (or copy-and-paste)
-your answers in this file.  When you are done, you should have replaced all
-the ellipses (the three dots) with your answers.
-
-At the end, you will turn in this file along with your modified
-dna_analysis.py program.
-
-
-Problem 1:
-
-(No answers in this file.)
-
-Problem 2:
-
-GC-content: 0.43029262963
-
-Problem 3:
-
-I received an error because the program tried to use the variable "linenum" that was not defined yet because it was commented out by me. linenum = linenum+1 -- the program uses linenum as a variable that updates itself +1 everytime it goes through the loop. Therefore, linenum must be defined before that line in order to operate.
-
-If I commented out gc_count= 0, the program would get an error just like linenum above because the program uses gc_count= gc_count+1. Therefore, gc_count must be defined before that line just like linenum needed to be defined before it updated itself.
-
-Problem 4:
-
-AT-content: 0.568993851852
-
-Collaboration:
-
-No one
-
-Reflection:
-
-This assignment taught me a great deal about the process of learning and understanding someone else's code. It also taught me how important comments are for other people to understand your program.  
->>>>>>> a7d43d3e44497c4b6881b8b47acb2619b115867e
