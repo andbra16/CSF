@@ -53,21 +53,16 @@ for line in inputfile:
 total_count = 0
 gc_count = 0
 at_count = 0
-<<<<<<< HEAD
 g_count = 0
 c_count = 0
 a_count = 0
 t_count = 0
-=======
->>>>>>> a7d43d3e44497c4b6881b8b47acb2619b115867e
-
 
 # for each base pair in the string,
 for bp in seq:
     # increment the total number of bps we've seen
     total_count = total_count + 1
 
-<<<<<<< HEAD
     # next, if the bp is a G or a C
     if bp == 'C' or bp == 'G':
         # increment the count of gc
@@ -106,7 +101,7 @@ elif gc_content < 0.40:
     gc_class= "low GC content"
 else:
     gc_class= "moderate GC content"
-=======
+
     # next, if the bp is a G or a C, or if the bp is an A or a T
     if bp == 'C' or bp == 'G':
         # increment the count of gc
@@ -118,12 +113,10 @@ else:
 # divide the gc_count/at_count by the total_count
 gc_content = float(gc_count) / total_count
 at_content = float(at_count) / total_count
->>>>>>> a7d43d3e44497c4b6881b8b47acb2619b115867e
 
 # Print the answer
 print 'GC-content:', gc_content
 print 'AT-content:', at_content
-<<<<<<< HEAD
 print 'G count:', g_count
 print 'C count:', c_count
 print 'A count:', a_count
@@ -133,5 +126,3 @@ print 'Total count:', total_count
 print 'seq length:', len(seq)
 print 'AT/GC Ratio:', ratio
 print 'GC Classification:', gc_class
-=======
->>>>>>> a7d43d3e44497c4b6881b8b47acb2619b115867e
