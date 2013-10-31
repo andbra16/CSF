@@ -1,5 +1,5 @@
-# Name: ...
-# Evergreen Login: ...
+# Name: Brandon Anderson
+# Evergreen Login: andbra16
 # Computer Science Foundations
 # Programming as a Way of Life
 # Homework 3: DNA analysis (Part 1)
@@ -51,8 +51,12 @@ for line in inputfile:
 
 # Total nucleotides seen so far.
 total_count = 0
-# Number of G and C nucleotides seen so far.
 gc_count = 0
+at_count = 0
+g_count = 0
+c_count = 0
+a_count = 0
+t_count = 0
 
 
 # for each base pair in the string,
@@ -60,14 +64,54 @@ for bp in seq:
     # increment the total number of bps we've seen
     total_count = total_count + 1
 
-    # next, if the bp is a G or a C,
+    # next, if the bp is a G or a C
     if bp == 'C' or bp == 'G':
         # increment the count of gc
         gc_count = gc_count + 1
+        
+        #adds together the individual count of G or C
+        if bp == 'C':
+            c_count = c_count+1
+        else:
+            g_count = g_count+1
+        
+        # next, if the bp is a A or a T
+    elif bp == 'A' or bp == 'T':
+        at_count = at_count + 1
+        
+        #adds together the individual count of A or T
+        if bp== 'A':
+            a_count = a_count+1
+        else:
+            t_count= t_count+1
 
+#adds up all the nucleotides
+sumCount= g_count+c_count+a_count+t_count
 
-# divide the gc_count by the total_count
-gc_content = float(gc_count) / total_count
+#divide the gc_count/at_count by the sumCount
+gc_content = float(gc_count) / sumCount
+at_content = float(at_count) / sumCount
+
+#AT/GC ratio
+ratio= float(at_count)/gc_count
+#Determines the GC classification
+
+if gc_content > 0.60: 
+    gc_class = "high GC content"
+elif gc_content < 0.40:
+    gc_class= "low GC content"
+else:
+    gc_class= "moderate GC content"
 
 # Print the answer
 print 'GC-content:', gc_content
+print 'AT-content:', at_content
+print 'G count:', g_count
+print 'C count:', c_count
+print 'A count:', a_count
+print 'T count:', t_count
+print 'Sum Count:', sumCount
+print 'Total count:', total_count
+print 'seq length:', len(seq)
+print 'AT/GC Ratio:', ratio
+print 'GC Classification:', gc_class

@@ -1,9 +1,9 @@
-Name: ...
-Evergreen Login: ...
+Name: Brandon Anderson
+Evergreen Login: andbra16
 Computer Science Foundations
 Programming as a Way of Life
 Fall 2013
-Homework 3 
+Homework 4 
 
 For each problem that requires a written answer, write (or copy-and-paste)
 your answers in this file.  When you are done, you should have replaced all
@@ -13,26 +13,33 @@ At the end, you will turn in this file along with your modified
 dna_analysis.py program.
 
 
-Problem 1:
+Problem 5:
 
-(No answers in this file.)
+G count: 5738773
+C count: 5879128
+A count: 7701287
+T count: 7661547
 
-Problem 2:
+Problem 6:
 
-...
+The Sum Count differs from the seq and Total Count in every file except the test-small.fastq file.
 
-Problem 3:
+The Sum Count must be used as the denominator for computing the GC content and AT content because the Sum Count counts the total number of A's, T's, G's, and C's. The seq and Total Count seem to count some other thing in the files (they could be counting a blank space, some error, anything sort of data that was within the lines of the file).
 
-...
+My program incorrectly computed the AT/GC content because in homework3 the already coded program divided GC count by Total count (due to not having Sum Count yet).
 
-Problem 4:
+Problem 7:
 
-...
+AT/GC Ratio: 1.32234161747
+
+Problem 8:
+
+GC Classification: moderate GC content
 
 Collaboration:
 
-...
+None
 
 Reflection:
 
-...
+I learned a great deal about debugging. I had no clue that the GC content calculated in Homework3 was intented to not work in Homework4. So, I spent a great deal of time wonder why the AT/GC contents were wrong before I realized that the wrong variable was being used in the denominator. 
