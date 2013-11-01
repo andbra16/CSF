@@ -1,0 +1,10 @@
+rows2 = [{'State': 'WA', 'Dem': '1.0', 'Rep': '0.1'},
+               {'State': 'CA', 'Dem': '0.2', 'Rep': '1.3'}]
+dictionary={}
+for i in range(len(rows2)):
+	stateDictionary = rows2[i]
+	state = stateDictionary['State']
+	edge = float(stateDictionary['Dem'])- float(stateDictionary['Rep'])
+	temp =  {state : edge}
+    	dictionary = dict(temp.items() + dictionary.items())
+print dictionary
