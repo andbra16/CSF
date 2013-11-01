@@ -41,7 +41,7 @@ def state_edges(election_result_rows):
         state = stateDictionary['State']
         edge = row_to_edge(stateDictionary)
         tempDictionary = {state : edge}
-        dictionary = dict(dictionary.items() + tempDictionary.items())
+        dictionary = dict(tempDictionary.items()+dictionary.items())
     return dictionary
         
         
@@ -63,8 +63,35 @@ def most_recent_poll_row(poll_rows, pollster, state):
     Given a list of poll data rows, returns the most recent row with the
     specified pollster and state. If no such row exists, returns None.
     """
-    #TODO: Implement this function
-    pass
+    poll_rows1 = [{"ID":1, "State":"WA", "Pollster":"A", "Date":"Jan 07 2010"},
+              {"ID":2, "State":"WA", "Pollster":"B", "Date":"Mar 21 2010"},
+              {"ID":3, "State":"WA", "Pollster":"A", "Date":"Jan 08 2010"},
+              {"ID":4, "State":"OR", "Pollster":"A", "Date":"Feb 10 2010"},
+              {"ID":5, "State":"WA", "Pollster":"B", "Date":"Feb 10 2010"},
+              {"ID":6, "State":"WA", "Pollster":"B", "Date":"Mar 22 2010"}]
+
+def most_recent_poll_row(poll_rows, pollster, state):
+	stateSet=[]
+	for i in range(len(poll_rows)):
+		rowDictionary= poll_rows[i]
+		checkState= rowDictionary['State']
+		checkPoll = rowDictionary['Pollster']
+		tempDate = rowDictionary['Date']
+		if checkState == state and checkPoll==pollster:
+			tempSet= [rowDictionary] 
+			stateSet= tempSet + stateSet
+			length= len(stateSet)-1
+			for i in range(length):
+				rowDictionary= stateSet[i]
+				date1= rowDictionary['Date']
+				rowDictionary2= stateSet[i+1]
+				date2= rowDictionary2['Date']
+				checkDate= earlier_date(date1, date2)
+				if checkDate== True:
+					recentPoll=rowDictionary
+				else:
+					recentPoll=rowDictionary2
+	return recentPoll
 
 
 ################################################################################
