@@ -76,9 +76,9 @@ def most_recent_poll_row(poll_rows, pollster, state):
 		rowDictionary= poll_rows[i]
 		checkState= rowDictionary['State']
 		checkPoll = rowDictionary['Pollster']
-		tempDate = rowDictionary['Date']
 		if checkState == state and checkPoll==pollster:
-			tempSet= [rowDictionary] 
+			tempSet= [rowDictionary]
+			poll=tempSet[0] 
 			stateSet= tempSet + stateSet
 			length= len(stateSet)-1
 			for i in range(length):
@@ -88,11 +88,10 @@ def most_recent_poll_row(poll_rows, pollster, state):
 				date2= rowDictionary2['Date']
 				checkDate= earlier_date(date1, date2)
 				if checkDate== True:
-					recentPoll=rowDictionary
+					poll=rowDictionary
 				else:
-					recentPoll=rowDictionary2
-	return recentPoll
-
+					poll=rowDictionary2
+	return poll
 
 ################################################################################
 # Problem 3: Pollster predictions
