@@ -1,0 +1,25 @@
+poll_rows1 = [{"ID":1, "State":"WA", "Pollster":"A", "Date":"Jan 07 2010"},
+              {"ID":2, "State":"WA", "Pollster":"B", "Date":"Mar 21 2010"},
+              {"ID":3, "State":"WA", "Pollster":"A", "Date":"Jan 08 2010"},
+              {"ID":4, "State":"OR", "Pollster":"A", "Date":"Feb 10 2010"},
+              {"ID":5, "State":"WA", "Pollster":"B", "Date":"Feb 10 2010"},
+              {"ID":6, "State":"WA", "Pollster":"B", "Date":"Mar 22 2010"}]
+def most_recent_poll_row(poll_rows, pollster, state):
+	stateSet=[]
+	for i in range(len(poll_rows)):
+		rowDictionary= poll_rows[i]
+		checkState= rowDictionary['State']
+		checkPoll = rowDictionary['Pollster']
+		tempDate = rowDictionary['Date']
+		if checkState == state and checkPoll==pollster:
+			tempSet= [rowDictionary] 
+			stateSet= tempSet + stateSet
+			for i in range(len(stateSet)):
+				rowDictionary= stateSet[i]
+				tempDate= rowDictionary['Date']
+				
+				
+				
+return recent
+		
+			
