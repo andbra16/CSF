@@ -54,7 +54,7 @@ def state_edges(election_result_rows):
 def earlier_date(date1, date2):
     """
     Given two dates as strings (formatted like "Oct 06 2012"), returns True if 
-    date1 is after date2.
+    date1 is before date2.
     """
     return (time.strptime(date1, "%b %d %Y") < time.strptime(date2, "%b %d %Y"))
 
@@ -72,25 +72,37 @@ def most_recent_poll_row(poll_rows, pollster, state):
 
 def most_recent_poll_row(poll_rows, pollster, state):
 	stateSet=[]
+	# takes a set of dictionaries and makes a new set of 
+	# dictionaries (sorts out the dictionaries with different
+	# states and pollsters) 
+	
 	for i in range(len(poll_rows)):
 		rowDictionary= poll_rows[i]
 		checkState= rowDictionary['State']
 		checkPoll = rowDictionary['Pollster']
 		if checkState == state and checkPoll==pollster:
-			tempSet= [rowDictionary]
-			poll=tempSet[0] 
-			stateSet= tempSet + stateSet
-			length= len(stateSet)-1
-			for i in range(length):
-				rowDictionary= stateSet[i]
-				date1= rowDictionary['Date']
-				rowDictionary2= stateSet[i+1]
-				date2= rowDictionary2['Date']
-				checkDate= earlier_date(date1, date2)
-				if checkDate== True:
-					poll=rowDictionary
-				else:
-					poll=rowDictionary2
+			stateSet= [rowDictionary] + stateSet
+	
+	# takes a set of dictionaries and checks the date
+	# of the first dictionary to the second dictionary
+	# if the first dictionary came after the second dictionary
+	# then the first dictionary becomes the second item in the set
+	# and is returned, and then repeats.
+		
+	length= len(stateSet)-1
+	if length==0:
+	    poll=stateSet[0]
+	for i in range(length):
+		rowDictionary= stateSet[i]
+		date1= rowDictionary['Date']
+		rowDictionary2= stateSet[i+1]
+		date2= rowDictionary2['Date']
+		checkDate= earlier_date(date1, date2)
+		if checkDate== True:
+			poll=rowDictionary2
+		else:
+			poll=rowDictionary
+			stateSet[i+1]=stateSet[i]
 	return poll
 
 ################################################################################

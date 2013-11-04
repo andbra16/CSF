@@ -1,32 +1,17 @@
-poll_rows1 = [{"ID":1, "State":"WA", "Pollster":"A", "Date":"Jan 07 2010"},
-              {"ID":2, "State":"WA", "Pollster":"B", "Date":"Mar 21 2010"},
-              {"ID":3, "State":"WA", "Pollster":"A", "Date":"Jan 08 2010"},
-              {"ID":4, "State":"OR", "Pollster":"A", "Date":"Feb 10 2010"},
-              {"ID":5, "State":"WA", "Pollster":"B", "Date":"Feb 10 2010"},
-              {"ID":6, "State":"WA", "Pollster":"B", "Date":"Mar 22 2010"}]
+set= [3, 1, 5]
+length = len(set)-1
 
-def most_recent_poll_row(poll_rows, pollster, state):
-	stateSet=[]
-	for i in range(len(poll_rows)):
-		rowDictionary= poll_rows[i]
-		checkState= rowDictionary['State']
-		checkPoll = rowDictionary['Pollster']
-		tempDate = rowDictionary['Date']
-		if checkState == state and checkPoll==pollster:
-			tempSet= [rowDictionary] 
-			stateSet= tempSet + stateSet
-			length= len(stateSet)-1
-			for i in range(length):
-				rowDictionary= stateSet[i]
-				date1= rowDictionary['Date']
-				rowDictionary2= stateSet[i+1]
-				date2= rowDictionary2['Date']
-				checkDate= earlier_date(date1, date2)
-				if checkDate== True
-					recentPoll=rowDictionary
-				else
-					recentPoll=rowDictionary2
-	return recentPoll
-				
+
+for i in range(length):
+    number = set[i]
+    number2= set[i+1]
+    if number<number2:
+         rightNumber = number2
+    else:
+        rightNumber=number
+        set[i+1]=set[i]
+return rightNumber
+
+print rightNumber
 		
 			
