@@ -35,7 +35,12 @@ def state_edges(election_result_rows):
     The input list does has no duplicate states;
     that is, each state is represented at most once in the input list.
     """
+    
     dictionary={}
+    
+    # takes a list of Dictionaries and makes a new Dictionary with the
+    # state and and edge
+    
     for i in range(len(election_result_rows)):
         stateDictionary = election_result_rows[i]
         state = stateDictionary['State']
@@ -63,16 +68,10 @@ def most_recent_poll_row(poll_rows, pollster, state):
     Given a list of poll data rows, returns the most recent row with the
     specified pollster and state. If no such row exists, returns None.
     """
-    poll_rows1 = [{"ID":1, "State":"WA", "Pollster":"A", "Date":"Jan 07 2010"},
-              {"ID":2, "State":"WA", "Pollster":"B", "Date":"Mar 21 2010"},
-              {"ID":3, "State":"WA", "Pollster":"A", "Date":"Jan 08 2010"},
-              {"ID":4, "State":"OR", "Pollster":"A", "Date":"Feb 10 2010"},
-              {"ID":5, "State":"WA", "Pollster":"B", "Date":"Feb 10 2010"},
-              {"ID":6, "State":"WA", "Pollster":"B", "Date":"Mar 22 2010"}]
-
 def most_recent_poll_row(poll_rows, pollster, state):
 	stateSet=[]
-	# takes a set of dictionaries and makes a new set of 
+	
+	# takes a list of dictionaries and makes a new list of 
 	# dictionaries (sorts out the dictionaries with different
 	# states and pollsters) 
 	
@@ -82,12 +81,17 @@ def most_recent_poll_row(poll_rows, pollster, state):
 		checkPoll = rowDictionary['Pollster']
 		if checkState == state and checkPoll==pollster:
 			stateSet= [rowDictionary] + stateSet
+			
+	# if the list didn't contain the specified state and pollster
+	# return None
+	if len(stateSet)== 0:
+	    poll= None
 	
-	# takes a set of dictionaries and checks the date
+	# takes a list of dictionaries and checks the date
 	# of the first dictionary to the second dictionary
 	# if the first dictionary came after the second dictionary
-	# then the first dictionary becomes the second item in the set
-	# and is returned, and then repeats.
+	# then the first dictionary becomes the second item in the list
+	# and the checking continues
 		
 	length= len(stateSet)-1
 	if length==0:
@@ -114,8 +118,11 @@ def unique_column_values(rows, column_name):
     Given a list of rows and the name of a column (a string), returns a set
     containing all values in that column.
     """
-    #TODO: Implement this function
-    pass
+    dictionary={}
+    for i in range(len(rows)):
+            rowDictionary=rows[i]
+            dictionary.setdefault(column_name, []).append(rowDictionary[column_name])
+    return dictionary[column_name]
 
 def pollster_predictions(poll_rows):
     """
