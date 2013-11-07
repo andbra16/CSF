@@ -50,8 +50,6 @@ def state_edges(election_result_rows):
     return dictionary
         
         
-
-
 ################################################################################
 # Problem 2: Find the most recent poll row
 ################################################################################
@@ -68,23 +66,22 @@ def most_recent_poll_row(poll_rows, pollster, state):
     Given a list of poll data rows, returns the most recent row with the
     specified pollster and state. If no such row exists, returns None.
     """
-def most_recent_poll_row(poll_rows, pollster, state):
-	stateSet=[]
+    stateSet=[]
 	
 	# takes a list of dictionaries and makes a new list of 
 	# dictionaries (sorts out the dictionaries with different
 	# states and pollsters) 
 	
-	for i in range(len(poll_rows)):
-		rowDictionary= poll_rows[i]
-		checkState= rowDictionary['State']
-		checkPoll = rowDictionary['Pollster']
-		if checkState == state and checkPoll==pollster:
-			stateSet= [rowDictionary] + stateSet
+    for i in range(len(poll_rows)):
+        rowDictionary= poll_rows[i]
+        checkState= rowDictionary['State']
+        checkPoll = rowDictionary['Pollster']
+        if checkState == state and checkPoll==pollster:
+	   stateSet= [rowDictionary] + stateSet
 			
 	# if the list didn't contain the specified state and pollster
 	# return None
-	if len(stateSet)== 0:
+    if len(stateSet)== 0:
 	    poll= None
 	
 	# takes a list of dictionaries and checks the date
@@ -93,21 +90,21 @@ def most_recent_poll_row(poll_rows, pollster, state):
 	# then the first dictionary becomes the second item in the list
 	# and the checking continues
 		
-	length= len(stateSet)-1
-	if length==0:
-	    poll=stateSet[0]
-	for i in range(length):
-		rowDictionary= stateSet[i]
-		date1= rowDictionary['Date']
-		rowDictionary2= stateSet[i+1]
-		date2= rowDictionary2['Date']
-		checkDate= earlier_date(date1, date2)
-		if checkDate== True:
-			poll=rowDictionary2
-		else:
-			poll=rowDictionary
-			stateSet[i+1]=stateSet[i]
-	return poll
+    length= len(stateSet)-1
+    if length==0:
+        poll=stateSet[0]
+    for i in range(length):
+        rowDictionary= stateSet[i]
+	date1= rowDictionary['Date']
+	rowDictionary2= stateSet[i+1]
+	date2= rowDictionary2['Date']
+	checkDate= earlier_date(date1, date2)
+	if checkDate== True:
+	   poll=rowDictionary2
+	else:
+	   poll=rowDictionary
+	   stateSet[i+1]=stateSet[i]
+    return poll
 
 ################################################################################
 # Problem 3: Pollster predictions
@@ -120,16 +117,28 @@ def unique_column_values(rows, column_name):
     """
     dictionary={}
     for i in range(len(rows)):
-            rowDictionary=rows[i]
-            dictionary.setdefault(column_name, []).append(rowDictionary[column_name])
+        rowDictionary=rows[i]
+        dictionary.setdefault(column_name, set()).add(rowDictionary[column_name])
     return dictionary[column_name]
 
 def pollster_predictions(poll_rows):
     """
     Given a list of poll data rows, returns pollster predictions.
     """
-    #TODO: Implement this function
-    pass
+    stateSet= unique_column_values(poll_rows, "State")
+    pollsterSet= unique_column_values(poll_rows, "Pollster")
+    
+    if len(stateSet)> len(pollSet):
+        for i in range(len(stateSet)):
+            mostRecent=test_most_recent(poll_rows, stateSet[i], pollsterSet[i])
+            mostRecent= set(mostRecent+ mostRecent)
+    else:
+        for i in range(len(pollsterSet)):
+            test_most_recent(
+        
+    
+    
+    
 
             
 ################################################################################
