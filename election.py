@@ -140,28 +140,22 @@ def pollster_predictions(poll_rows):
     
     for i in range(len(poll_rows)):
         rowDictionary=poll_rows[i]
-        hamburger=rowDictionary["State"]
+        state=rowDictionary["State"]
         pollster=rowDictionary["Pollster"]
-        recentDict=most_recent_poll_row(poll_rows, hamburger, pollster)
+        recentDict=most_recent_poll_row(poll_rows, pollster, state)
         recentSet=recentSet + [recentDict]
     
     # takes the list of recent polls and creates a dictionary of 
     # {"Pollster" : edge}
         
     for i in range(len(recentSet)):
-       # rowDictionary=recentSet[i]
-        #pollster=rowDictionary["Pollster"]
-        #edge=state_edges(rowDictionary)
-        #tempDictionary= {pollster : edge}
-        #dictionary = dict(tempDictionary.items()+dictionary.items())
-        pass
-    return dictionary
-    
-    
+        rowDictionary=recentSet[i]
+        pollster=rowDictionary["Pollster"]
+        edge=state_edges(rowDictionary)
+        tempDictionary= {pollster : edge}
+        dictionary = dict(tempDictionary.items()+dictionary.items())
         
-    
-    
-    
+    return dictionary
 
             
 ################################################################################
