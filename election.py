@@ -42,9 +42,9 @@ def state_edges(election_result_rows):
     # state and and edge
     
     for i in range(len(election_result_rows)):
-        stateDictionary = election_result_rows[i]
-        state = stateDictionary['State']
-        edge = row_to_edge(stateDictionary)
+        rowDictionary = election_result_rows[i]
+        state = rowDictionary['State']
+        edge = row_to_edge(rowDictionary)
         tempDictionary = {state : edge}
         dictionary = dict(tempDictionary.items()+dictionary.items())
     return dictionary
@@ -81,11 +81,12 @@ def most_recent_poll_row(poll_rows, pollster, state):
 			
 	# if the list didn't contain the specified state and pollster
 	# return None
+	
     if len(stateSet)== 0:
 	    poll= None
 	
-	# takes a list of dictionaries and checks the date
-	# of the first dictionary to the second dictionary
+	# takes the stateSet and checks the date
+	# of the first dictionary to the date of the second dictionary;
 	# if the first dictionary came after the second dictionary
 	# then the first dictionary becomes the second item in the list
 	# and the checking continues
@@ -115,7 +116,12 @@ def unique_column_values(rows, column_name):
     Given a list of rows and the name of a column (a string), returns a set
     containing all values in that column.
     """
+    
     dictionary={}
+    
+    # takes a list of dictionaries and creates a dictionary of the "column_name"
+    # given with its multiple values and returns a set of the values
+    
     for i in range(len(rows)):
         rowDictionary=rows[i]
         dictionary.setdefault(column_name, set()).add(rowDictionary[column_name])
@@ -125,16 +131,33 @@ def pollster_predictions(poll_rows):
     """
     Given a list of poll data rows, returns pollster predictions.
     """
-    stateSet= unique_column_values(poll_rows, "State")
-    pollsterSet= unique_column_values(poll_rows, "Pollster")
     
-    if len(stateSet)> len(pollSet):
-        for i in range(len(stateSet)):
-            mostRecent=test_most_recent(poll_rows, stateSet[i], pollsterSet[i])
-            mostRecent= set(mostRecent+ mostRecent)
-    else:
-        for i in range(len(pollsterSet)):
-            test_most_recent(
+    recentSet=[]
+    dictionary={}
+    
+    # takes a list of dictionaries and creates a list of dictionaries
+    # with only the most recent polls
+    
+    for i in range(len(poll_rows)):
+        rowDictionary=poll_rows[i]
+        hamburger=rowDictionary["State"]
+        pollster=rowDictionary["Pollster"]
+        recentDict=most_recent_poll_row(poll_rows, hamburger, pollster)
+        recentSet=recentSet + [recentDict]
+    
+    # takes the list of recent polls and creates a dictionary of 
+    # {"Pollster" : edge}
+        
+    for i in range(len(recentSet)):
+       # rowDictionary=recentSet[i]
+        #pollster=rowDictionary["Pollster"]
+        #edge=state_edges(rowDictionary)
+        #tempDictionary= {pollster : edge}
+        #dictionary = dict(tempDictionary.items()+dictionary.items())
+        pass
+    return dictionary
+    
+    
         
     
     
