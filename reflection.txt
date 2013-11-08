@@ -1,0 +1,16 @@
+Name: Brandon Anderson
+UW NetID: andbra16
+CSF
+Homework 5: Election prediction
+
+
+Collaboration:
+
+Tutors in lab
+
+Reflection:
+
+This homework nearly made my head explode on several occasions. It was difficult learning the new syntax and operations of dictionaries while working with them in such an abstract way (ie. using many functions and pulling inputs from other files and etc.)  The debugging was painful because of this, and further added to frustation.
+
+In the end, I have to say that this homework greatly increased my debugging skills, and increased my ability to break problems down into smaller pieces in order to figure out what the problem is asking.
+
