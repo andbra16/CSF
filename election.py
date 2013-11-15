@@ -172,16 +172,36 @@ def average_error(state_edges_predicted, state_edges_actual):
     Given predicted state edges and actual state edges, returns
     the average error of the prediction.
     """
-    #TODO: Implement this function
-    pass
+    count=0
+    error=0
+    averageError=0
+    
+    # takes the dictionary of predicted and the dictionary of edges and
+    # checks if they are the same state. If they are the count increments
+    # and the error is calculated. After all the states are checked the average
+    # error is computed.
+    
+    for i in state_edges_predicted:
+        for j in state_edges_actual:
+            if i==j:
+                count= count+1
+                tempError=abs(state_edges_predicted[i]-state_edges_actual[j])
+                error= error+tempError
+    if count>0:
+        averageError=error/count
+    return averageError 
 
 def pollster_errors(pollster_predictions, state_edges_actual):
     """
     Given pollster predictions and actual state edges, retuns pollster errors.
     """
-    #TODO: Implement this function
-    pass
-
+    
+    # takes two dictionaries and returns the average error by pollster in a dictionary
+    errorDict={}
+    for i in pollster_predictions:
+            errorDict[i]=average_error(pollster_predictions[i], state_edges_actual)
+    return errorDict
+    
 
 ################################################################################
 # Problem 5: Pivot a nested dictionary
@@ -202,10 +222,13 @@ def pivot_nested_dict(nested_dict):
                 'x': {'a': 1, 'b': 3},
                 'z': {'b': 4} }
     """
-     #TODO: Implement this function
-    pass
-
-
+    stateDict={}
+    for i in nested_dict:
+        dict2=nested_dict[i]
+        for j in dict2:
+            stateDict[j]= {i: dict2[j]}
+    return stateDict
+        
 ################################################################################
 # Problem 6: Average the edges in a single state
 ################################################################################
