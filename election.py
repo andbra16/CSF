@@ -271,18 +271,30 @@ def weighted_average(items, weights):
     """
     assert len(items) > 0
     assert len(items) == len(weights)
-    #TODO: Implement this function
-    pass
-
+    
+    top=0.0
+    botSum=0.0
+    for i in range(len(items)):
+        topProduct=float(items[i]*weights[i])
+        botSum=float(botSum + weights[i])
+        top= top + topProduct
+    
+    weightedAvg= top/botSum
+    return weightedAvg       
 
 def average_edge(pollster_edges, pollster_errors):
     """
     Given pollster edges and pollster errors, returns the average of these edges
     weighted by their respective pollster errors.
     """
-    #TODO: Implement this function
-    pass
-
+    weights=[]
+    items=[]
+    for i in pollster_edges:
+        items.append(pollster_edges[i])
+        weights.append(pollster_to_weight(i, pollster_errors))
+        
+    avgEdge=weighted_average(items, weights)
+    return avgEdge
     
 ################################################################################
 # Problem 7: Predict the 2012 election
@@ -293,8 +305,19 @@ def predict_state_edges(pollster_predictions, pollster_errors):
     Given pollster predictions from a current election and pollster errors from
     a past election, returns the predicted state edges of the current election.
     """
-    #TODO: Implement this function
-    pass
+    
+    pollsterDict=pivot_nested_dict(pollster_predictions)
+    stateError={}
+    
+    
+    #for i in pollster_errors:
+        #for j in pollsterDict:
+            #pollster_edges=pollsterDict[j]
+            #for k in pollster_edges:
+                #if i==k:
+                   # stateError[i]=pollster_errors[i]
+                    
+            
     
 
 ################################################################################
