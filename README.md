@@ -1,4 +1,0 @@
-CSF
-===
-
-Evergreen CSF Homework
