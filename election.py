@@ -190,7 +190,7 @@ def average_error(state_edges_predicted, state_edges_actual):
     if count>0:
         averageError=error/count
     return averageError 
-
+    
 def pollster_errors(pollster_predictions, state_edges_actual):
     """
     Given pollster predictions and actual state edges, retuns pollster errors.
@@ -226,7 +226,10 @@ def pivot_nested_dict(nested_dict):
     for i in nested_dict:
         dict2=nested_dict[i]
         for j in dict2:
-            stateDict[j]= {i: dict2[j]}
+            if j not in stateDict:
+                stateDict[j] = {i: dict2[j]}
+            else:
+                stateDict[j][i] = dict2[j]
     return stateDict
         
 ################################################################################
