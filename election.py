@@ -307,15 +307,15 @@ def predict_state_edges(pollster_predictions, pollster_errors):
     """
     
     pollsterDict=pivot_nested_dict(pollster_predictions)
-    stateError={}
     
+    for i in pollsterDict:
+        stateError={}
+        for j in pollsterDict[i]:
+            for k in pollster_errors:
+                if j==k:
+                    stateError[k]=pollster_errors[k]
+                    
     
-    #for i in pollster_errors:
-        #for j in pollsterDict:
-            #pollster_edges=pollsterDict[j]
-            #for k in pollster_edges:
-                #if i==k:
-                   # stateError[i]=pollster_errors[i]
                     
             
     
