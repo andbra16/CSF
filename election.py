@@ -312,7 +312,7 @@ def predict_state_edges(pollster_predictions, pollster_errors):
     #takes the pollsters of each state and then makes an
     #error list for each individual state so that the average 
     #edge can be taken
-    
+    """
     for i in pollsterDict:
         stateError={}
         for j in pollsterDict[i]:
@@ -321,7 +321,17 @@ def predict_state_edges(pollster_predictions, pollster_errors):
                     stateError[k]=pollster_errors[k]
                 stateEdge[i]=average_edge(pollsterDict[i], stateError)
     return stateEdge
-
+    
+    (this works but isn't very efficient)
+    """
+    
+    #didn't realize that average_edge would check for the same pollsters in
+    #pollster_to_weight
+    #(much shorter function in return!) (collaboration with cliff)
+    for i in pollsterDict:
+        stateEdge[i]=average_edge(pollsterDict[i], pollster_errors)
+    return stateEdge
+    
 ################################################################################
 # Electoral College, Main Function, etc.
 ################################################################################

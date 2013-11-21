@@ -1,16 +1,13 @@
 Name: Brandon Anderson
 Evergreen login: andbra16
 CSF
-Homework 5: Election prediction
+Homework 7: Election prediction
 
 
 Collaboration:
 
-Tutors in lab
+Cliff Randolph on Problem7 to help optimize my coding.
 
 Reflection:
 
-This homework nearly made my head explode on several occasions. It was difficult learning the new syntax and operations of dictionaries while working with them in such an abstract way (ie. using many functions and pulling inputs from other files and etc.)  The debugging was painful because of this, and further added to frustation.
-
-In the end, I have to say that this homework greatly increased my debugging skills, and increased my ability to break problems down into smaller pieces in order to figure out what the problem is asking.
-
+This homework went A LOT smoother after learning iterating through dictionaries, and lists with Homework 6. I have to thank Group 20 for writing such awesome questions. It taught me a lot and made homework 7 so much easier.
