@@ -307,6 +307,11 @@ def predict_state_edges(pollster_predictions, pollster_errors):
     """
     
     pollsterDict=pivot_nested_dict(pollster_predictions)
+    stateEdge={}
+    
+    #takes the pollsters of each state and then makes an
+    #error list for each individual state so that the average 
+    #edge can be taken
     
     for i in pollsterDict:
         stateError={}
@@ -314,11 +319,8 @@ def predict_state_edges(pollster_predictions, pollster_errors):
             for k in pollster_errors:
                 if j==k:
                     stateError[k]=pollster_errors[k]
-                    
-    
-                    
-            
-    
+                stateEdge[i]=average_edge(pollsterDict[i], stateError)
+    return stateEdge
 
 ################################################################################
 # Electoral College, Main Function, etc.
