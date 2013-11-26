@@ -1,5 +1,5 @@
-# Name:Brandon Anderson
-# Evergreen Login:andbra16
+# Name: ...
+# Evergreen Login: ...
 # Computer Science Foundations
 # Programming as a Way of Life
 # Homework 8
@@ -56,6 +56,7 @@ def draw_practice_graph():
 
 rj=nx.Graph()
 
+#nodes
 rj.add_node("Nurse")
 rj.add_node("Juliet")
 rj.add_node("Tybalt")
@@ -68,7 +69,7 @@ rj.add_node("Mercutio")
 rj.add_node("Escalus")
 rj.add_node("Paris")
 
-
+#edges
 rj.add_edge("Nurse","Juliet")
 rj.add_edge("Juliet","Tybalt")
 rj.add_edge("Juliet","Capulet")
@@ -86,7 +87,6 @@ rj.add_edge("Escalus", "Paris")
 rj.add_edge("Paris", "Mercutio")
 rj.add_edge("Capulet","Escalus")
 rj.add_edge("Capulet", "Paris")
-
 
 assert len(rj.nodes()) == 11
 assert len(rj.edges()) == 17
@@ -119,13 +119,22 @@ def friends_of_friends(graph, user):
     The result does not include the given user nor any of that user's friends.
     """
     the_friends=friends(graph, user)
-    friends_of_friends=friends(graph, the_friends)
+    friends_of_friends=set()
+    for i in the_friends:
+        friends_of_friends=friends_of_friends.union(friends(graph, i))
+    
+    #removes the user, and the users friends
+    friends_of_friends.difference_update(the_friends)
+    friends_of_friends.remove(user)
+   
     return friends_of_friends
 
 assert friends_of_friends(rj, "Mercutio") == set(['Benvolio', 'Capulet', 'Friar Laurence', 'Juliet', 'Montague'])
 
+
 def common_friends(graph, user1, user2):
     """Returns the set of friends that user1 and user2 have in common."""
+    
     return friends(graph, user1).intersection(friends(graph, user2))
 
 assert common_friends(practice_graph,"A", "B") == set(['C'])
@@ -151,7 +160,18 @@ def number_of_common_friends_map(graph, user):
         - A is friends with D
     number_of_common_friends_map(G, "A")  =>   { 'B':2, 'C':1 }
     """
-    print "To be implemented"
+    
+    common_friends_map={i: None for i in friends_of_friends(graph,user)}
+    
+    #counts the number of friends in the set from common friends and
+    #assigns that number to the friend 
+    
+    for keys in common_friends_map:
+        common_friends_map[keys]=sum(1 for items in common_friends(graph, user, keys))
+    
+    
+    return common_friends_map
+    
 
 assert number_of_common_friends_map(practice_graph, "A") == {'D': 2, 'F': 1}
 
@@ -163,8 +183,20 @@ def number_map_to_sorted_list(map):
     The keys are sorted by the number they map to, from greatest to least.
     When two keys map to the same number, the keys are sorted by their
     natural sort order, from least to greatest."""
-    print "To be implemented"
-
+    
+    newmap=map
+    
+    #sorts the dictionary by key in ascending order and turns it into a list of tuples
+    newmap=sorted(newmap.iteritems(), key=operator.itemgetter(0))
+    
+    #sorts the list of tuples in descending order by its value
+    newmap=sorted(newmap, key=operator.itemgetter(1), reverse=True)
+    
+    newmap= [i for i,j in newmap]
+    
+    return newmap
+    
+    
 assert number_map_to_sorted_list({"a":5, "b":2, "c":7, "d":5, "e":5}) == ['c', 'a', 'd', 'e', 'b']
 
 
@@ -174,7 +206,10 @@ def recommend_by_number_of_common_friends(graph, user):
     who are not yet a friend of the given user.
     The order of the list is determined by the number of common friends.
     """
-    print "To be implemented"
+    
+    friend_rec=number_of_common_friends_map(graph,user)
+    ordered_rec=number_map_to_sorted_list(friend_rec)
+    return ordered_rec
 
 
 assert recommend_by_number_of_common_friends(practice_graph,"A") == ['D', 'F']
@@ -192,7 +227,21 @@ def influence_map(graph, user):
     and are neither U nor one of U's friends.
     See the assignment for the definition of friend influence.
     """
-    print "To be implemented"
+    common_friends_map={i: None for i in friends_of_friends(graph,user)}
+    
+    """can't get to work
+    for keys in common_friends_map:
+        common_friends_map[keys]=1.0/sum(1 for items in friends(graph, i for i in common_friends(graph, user, keys)))
+        """
+        
+    for keys in common_friends_map:
+        sums=0.0
+        for i in common_friends(graph, user, keys):
+            sums=sums+1.0/sum(1 for items in friends(graph, i))
+            common_friends_map[keys]=sums
+    
+    print common_friends_map
+    return common_friends_map
 
 assert influence_map(rj, "Mercutio") == { 'Benvolio': 0.2, 'Capulet': 0.5833333333333333, 'Friar Laurence': 0.2, 'Juliet': 0.2, 'Montague': 0.45 }
 
@@ -203,7 +252,7 @@ def recommend_by_influence(graph, user):
     who are not yet a friend of the given user.
     The order of the list is determined by the influence measurement.
     """
-    print "To be implemented"
+    return recommend_by_number_of_common_friends(graph, user)
 
 assert recommend_by_influence(rj, "Mercutio") == ['Capulet', 'Montague', 'Benvolio', 'Friar Laurence', 'Juliet']
 
