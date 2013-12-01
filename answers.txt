@@ -1,0 +1,72 @@
+Name: Brandon Anderson
+Evergreen Login: andbra16
+Computer Science Foundations
+Programming as a Way of Life
+Homework 8
+
+For each problem that requires a written answer, write (or copy-and-paste)
+your answers in this file.  When you are done, you should have replaced all
+the ellipses (the three dots) with your answers.
+
+
+Problem 1-3:
+
+(No answers in this file.)
+
+Problem 4:
+
+Unchanged recommendations: ['Benvolio', 'Escalus', 'Friar Laurence', 'Mercutio', 'Nurse']
+
+Changed recommendations: ['Capulet', 'Juliet', 'Montague', 'Paris', 'Romeo', 'Tybalt']
+
+Problem 5:
+
+Leave the correct one:
+Yes
+
+Reason:
+The highest influence someone can ever have would be 1/2. This is because in order to get a recommendation you must have a friend and this friend must be friends with someone you are not friends with. So, your friend must have atleast 2 friends you and someone else in order to give a recommendation which would give this friend recommendation an influence of 1/2 because your friend MUST have 2 friends.
+
+Problem 6:
+
+Graph:
+...
+
+Reason:
+...
+
+Problem 7:
+
+...
+
+Problem 8:
+
+(No answers in this file.)
+
+Problem 9:
+
+...
+
+Problem 10:
+
+...
+
+Problem 11:
+
+...
+
+Problem 12:
+
+...
+
+
+
+Collaboration:
+
+...
+
+Reflection:
+
+...
+
+(Don't forget to complete the time survey!)

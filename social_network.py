@@ -1,5 +1,5 @@
-# Name: ...
-# Evergreen Login: ...
+# Name: Brandon Anderson
+# Evergreen Login: andbra16
 # Computer Science Foundations
 # Programming as a Way of Life
 # Homework 8
@@ -125,7 +125,8 @@ def friends_of_friends(graph, user):
     
     #removes the user, and the users friends
     friends_of_friends.difference_update(the_friends)
-    friends_of_friends.remove(user)
+    if user in friends_of_friends:
+        friends_of_friends.remove(user)
    
     return friends_of_friends
 
@@ -240,7 +241,6 @@ def influence_map(graph, user):
             sums=sums+1.0/sum(1 for items in friends(graph, i))
             common_friends_map[keys]=sums
     
-    print common_friends_map
     return common_friends_map
 
 assert influence_map(rj, "Mercutio") == { 'Benvolio': 0.2, 'Capulet': 0.5833333333333333, 'Friar Laurence': 0.2, 'Juliet': 0.2, 'Montague': 0.45 }
@@ -252,7 +252,9 @@ def recommend_by_influence(graph, user):
     who are not yet a friend of the given user.
     The order of the list is determined by the influence measurement.
     """
-    return recommend_by_number_of_common_friends(graph, user)
+    friend_rec=influence_map(graph,user)
+    ordered_rec=number_map_to_sorted_list(friend_rec)
+    return ordered_rec
 
 assert recommend_by_influence(rj, "Mercutio") == ['Capulet', 'Montague', 'Benvolio', 'Friar Laurence', 'Juliet']
 
@@ -260,6 +262,26 @@ assert recommend_by_influence(rj, "Mercutio") == ['Capulet', 'Montague', 'Benvol
 ###
 ### Problem 4
 ###
+
+users = ["Nurse","Juliet","Tybalt","Capulet","Friar Laurence","Romeo","Benvolio",
+            "Montague","Mercutio","Escalus","Paris"]
+
+unchanged_recommendations=[]
+changed_recommendations=[]
+
+for i in users:
+    influence=recommend_by_influence(rj, i)
+    number=recommend_by_number_of_common_friends(rj, i)
+    if influence==number:
+        unchanged_recommendations.append(i)
+    else:
+        changed_recommendations.append(i)
+        
+unchanged_recommendations.sort()
+changed_recommendations.sort()
+        
+print "Unchanged recommendations: " + str(unchanged_recommendations)
+print "Changed recommendations: " + str(changed_recommendations)
 
 
 
@@ -280,13 +302,84 @@ assert recommend_by_influence(rj, "Mercutio") == ['Capulet', 'Montague', 'Benvol
 ###
 ### Problem 7
 ###
+infl_average=0.0
+common_average=0.0
+infl_count=0.0
+common_count=0.0
 
+for i in range(100):
+    f1=random.choice(rj.node.keys())
+    f2=random.choice(list(friends(rj, f1)))
+    rj.remove_edge(f1, f2)
+    
+    #influence method
+    f2_inf_friends=recommend_by_influence(rj, f2)
+    f1_inf_friends=recommend_by_influence(rj, f1)
+    f1_rank=0
+    for i in f2_inf_friends:
+        if f1 not in f2_inf_friends:
+            break
+        f1_rank= f1_rank+1
+        if i==f1:
+            break
+            
+    f2_rank=0
+    for i in f1_inf_friends:
+        if f2 not in f1_inf_friends:
+            break
+        f2_rank=f2_rank+1
+        if i==f1:
+            break
+   
+    if f1_rank>0 and f2_rank>0:      
+        infl_method= float(f1_rank+f2_rank/2.0)
+        infl_count= infl_count+1.0
+        infl_average= infl_average+infl_method
+    
+    #friends in common method
+    f2_common_friends=recommend_by_number_of_common_friends(rj, f2)
+    f1_common_friends=recommend_by_number_of_common_friends(rj, f1)
+    f1_rank=0
+    for i in f2_common_friends:
+        if f1 not in f2_common_friends:
+            break
+        f1_rank=f1_rank+1
+        if i==f1:
+            break
+    
+    f2_rank=0
+    for i in f1_common_friends:
+        if f2 not in f1_common_friends:
+            break
+        f2_rank=f2_rank+1
+        if i==f2:
+            break
+    
+    if f1_rank>0 and f2_rank>0:
+        common_method=float(f1_rank+f2_rank/2.0)
+        common_average=common_average+common_method
+        common_count=common_count+1.0
+        
+    rj.add_edge(f1, f2)
+    
+infl_average=infl_average/infl_count
+common_average=common_average/common_count
+
+if common_average<infl_average:
+    better="Number of friends in common"
+else:
+    better="Influence"
+    
+print "Average rank of influence method: " + str(infl_average)
+print "Average rank of number of friends in common method: " +str(common_average)
+print better + " method is better."
 
 ###
 ### Problem 8
 ###
 
-# (Your code goes here.)
+facebook=nx.Graph()
+
 
 assert len(facebook.nodes()) == 63731
 assert len(facebook.edges()) == 817090
