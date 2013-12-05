@@ -229,11 +229,6 @@ def influence_map(graph, user):
     See the assignment for the definition of friend influence.
     """
     common_friends_map={i: None for i in friends_of_friends(graph,user)}
-    
-    """can't get to work
-    for keys in common_friends_map:
-        common_friends_map[keys]=1.0/sum(1 for items in friends(graph, i for i in common_friends(graph, user, keys)))
-        """
         
     for keys in common_friends_map:
         sums=0.0
@@ -380,6 +375,15 @@ print better + " method is better."
 
 facebook=nx.Graph()
 
+facebookFile=open("facebook-links.txt", "r")
+facebookLines=facebookFile.readlines()
+
+for line in facebookLines:
+    data=line.split()
+    facebook.add_node(data[0])
+    facebook.add_node(data[1])
+    facebook.add_edge(data[0],data[1])
+
 
 assert len(facebook.nodes()) == 63731
 assert len(facebook.edges()) == 817090
@@ -389,6 +393,12 @@ assert len(facebook.edges()) == 817090
 ### Problem 9
 ###
 
+nodes=facebook.nodes()
+nodes.sort()
+
+for n in nodes:
+    if int(n)%1000==0:
+        print n #+ [i for i in recommend_by_number_of_common_friends(facebook, data[0]) in range(10)]
 
 ###
 ### Problem 10
