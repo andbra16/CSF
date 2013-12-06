@@ -277,8 +277,7 @@ changed_recommendations.sort()
         
 print "Unchanged recommendations: " + str(unchanged_recommendations)
 print "Changed recommendations: " + str(changed_recommendations)
-
-
+print 
 
 ###
 ### Problem 5
@@ -297,77 +296,82 @@ print "Changed recommendations: " + str(changed_recommendations)
 ###
 ### Problem 7
 ###
-infl_average=0.0
-common_average=0.0
-infl_count=0.0
-common_count=0.0
 
-for i in range(100):
-    f1=random.choice(rj.node.keys())
-    f2=random.choice(list(friends(rj, f1)))
-    rj.remove_edge(f1, f2)
+def recommendation_averages(graph):
+    infl_average=0.0
+    common_average=0.0
+    infl_count=0.0
+    common_count=0.0
+
+    for i in range(100):
+        f1=random.choice(graph.nodes())
+        f2=random.choice(list(friends(graph, f1)))
+        graph.remove_edge(f1, f2)
     
-    #influence method
-    f2_inf_friends=recommend_by_influence(rj, f2)
-    f1_inf_friends=recommend_by_influence(rj, f1)
-    f1_rank=0
-    for i in f2_inf_friends:
-        if f1 not in f2_inf_friends:
-            break
-        f1_rank= f1_rank+1
-        if i==f1:
-            break
+        #influence method
+        f2_inf_friends=recommend_by_influence(graph, f2)
+        f1_inf_friends=recommend_by_influence(graph, f1)
+        f1_rank=0
+        for i in f2_inf_friends:
+            if f1 not in f2_inf_friends:
+                break
+            f1_rank= f1_rank+1
+            if i==f1:
+                break
             
-    f2_rank=0
-    for i in f1_inf_friends:
-        if f2 not in f1_inf_friends:
-            break
-        f2_rank=f2_rank+1
-        if i==f1:
-            break
+        f2_rank=0
+        for i in f1_inf_friends:
+            if f2 not in f1_inf_friends:
+                break
+            f2_rank=f2_rank+1
+            if i==f2:
+                break
    
-    if f1_rank>0 and f2_rank>0:      
-        infl_method= float(f1_rank+f2_rank/2.0)
-        infl_count= infl_count+1.0
-        infl_average= infl_average+infl_method
+        if f1_rank>0 and f2_rank>0:      
+            infl_method= float(f1_rank+f2_rank/2.0)
+            infl_count= infl_count+1.0
+            infl_average= infl_average+infl_method
     
-    #friends in common method
-    f2_common_friends=recommend_by_number_of_common_friends(rj, f2)
-    f1_common_friends=recommend_by_number_of_common_friends(rj, f1)
-    f1_rank=0
-    for i in f2_common_friends:
-        if f1 not in f2_common_friends:
-            break
-        f1_rank=f1_rank+1
-        if i==f1:
-            break
+        #friends in common method
+        f2_common_friends=recommend_by_number_of_common_friends(graph, f2)
+        f1_common_friends=recommend_by_number_of_common_friends(graph, f1)
+        f1_rank=0
+        for i in f2_common_friends:
+            if f1 not in f2_common_friends:
+                break
+            f1_rank=f1_rank+1
+            if i==f1:
+                break
     
-    f2_rank=0
-    for i in f1_common_friends:
-        if f2 not in f1_common_friends:
-            break
-        f2_rank=f2_rank+1
-        if i==f2:
-            break
+        f2_rank=0
+        for i in f1_common_friends:
+            if f2 not in f1_common_friends:
+                break
+            f2_rank=f2_rank+1
+            if i==f2:
+                break
     
-    if f1_rank>0 and f2_rank>0:
-        common_method=float(f1_rank+f2_rank/2.0)
-        common_average=common_average+common_method
-        common_count=common_count+1.0
+        if f1_rank>0 and f2_rank>0:
+            common_method=float(f1_rank+f2_rank/2.0)
+            common_average=common_average+common_method
+            common_count=common_count+1.0
         
-    rj.add_edge(f1, f2)
+        graph.add_edge(f1, f2)
     
-infl_average=infl_average/infl_count
-common_average=common_average/common_count
+    infl_average=infl_average/infl_count
+    common_average=common_average/common_count
 
-if common_average<infl_average:
-    better="Number of friends in common"
-else:
-    better="Influence"
+    if common_average<infl_average:
+        better="Number of friends in common"
+    else:
+        better="Influence"
     
-print "Average rank of influence method: " + str(infl_average)
-print "Average rank of number of friends in common method: " +str(common_average)
-print better + " method is better."
+    print "Average rank of influence method: " + str(infl_average)
+    print "Average rank of number of friends in common method: " +str(common_average)
+    print better + " method is better."
+    print
+    
+recommendation_averages(rj)
 
 ###
 ### Problem 8
@@ -380,36 +384,62 @@ facebookLines=facebookFile.readlines()
 
 for line in facebookLines:
     data=line.split()
-    facebook.add_node(data[0])
-    facebook.add_node(data[1])
-    facebook.add_edge(data[0],data[1])
+    facebook.add_node(int(data[0]))
+    facebook.add_node(int(data[1]))
+    facebook.add_edge(int(data[0]),int(data[1]))
 
 
 assert len(facebook.nodes()) == 63731
 assert len(facebook.edges()) == 817090
 
+print "Facebook nodes: " + str(len(facebook.nodes()))
+print "Facebook edges: " + str(len(facebook.edges()))
+print
 
 ###
 ### Problem 9
 ###
 
-nodes=facebook.nodes()
+nodes = facebook.nodes()
 nodes.sort()
 
-for n in nodes:
-    if int(n)%1000==0:
-        print n #+ [i for i in recommend_by_number_of_common_friends(facebook, data[0]) in range(10)]
-
+common_friends_dict={} #used in problem 11
+for i in nodes:
+    if i%1000==0:
+        allFriends=recommend_by_number_of_common_friends(facebook, i)
+        print str(i)+ " " + str(allFriends[:10])
+        common_friends_dict[i]= allFriends[:10]
+print
+       
 ###
 ### Problem 10
 ###
 
+infl_friends_dict={} #used in problem 11
+for i in nodes:
+    if i%1000==0:
+        allFriends=recommend_by_influence(facebook, i)
+        print str(i)+ " " + str(allFriends[:10])
+        infl_friends_dict[i]=allFriends[:10]
+print
 
 ###
 ### Problem 11
 ###
 
+same=[]
+different=[]
+for key in common_friends_dict:
+    if common_friends_dict[key]==infl_friends_dict[key]:
+        same.append(key)
+    else:
+        different.append(key)
 
+print "Same: " + str(len(same)) + ", " + "Different: " + str(len(different))
+print 
+        
 ###
 ### Problem 12
 ###
+
+recommendation_averages(facebook)
