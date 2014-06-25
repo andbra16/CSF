@@ -1,0 +1,5 @@
+Week 2 Goals:
+
+Research the queue interface and linklists.
+
+Start working on Homework2.

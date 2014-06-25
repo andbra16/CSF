@@ -1,0 +1,3 @@
+Partner: Trevor Plate
+
+Goals: Debug Hw1 and start working on hw3.
