@@ -1,0 +1,3 @@
+In Programming as a Way of Life III, Brandon became proficient in developing Java programs at a medium scale. Brandon demonstrated understanding of the following learning goals: Java Collections API, namely HashMap and ArrayList; inheritance of variables and methods; unit testing, regression testing, and refactoring; polymorphism; incremental development using git and GitHub.; encapsulation with getters and setters; exceptions and the try / catch keywords; interfaces and implementation; and enumerations.
+He consistently worked ahead of my expectations on more advanced lessons, completing 7 homeworks beyond those expected for the class.
+

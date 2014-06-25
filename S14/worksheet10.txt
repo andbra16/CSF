@@ -1,0 +1,6 @@
+1) return type, name, parameters
+
+2) When you add new code, you should test the new code on all the code because their could be integration side
+effects. You could also break a test that previously worked.
+
+3) 

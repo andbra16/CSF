@@ -1,20 +1,17 @@
-
 {L1} : Encapsulation: the grouping together of variables of (possibly) different types together into a class, getters and setters
 {L2} : Demonstrated understanding of Java Interfaces and implementation.
 {L3} : Inheritance of variables (data members) and methods (function members)
 {L4} : Polymorphism
 {L5} : Demonstrated understanding of following Java Collections API(s): Queue, HashMap, ArrayList.
+{L6} : Unit tests
+{L7} : Exceptions
 {L8} : Enums
 {L9} : Incremental development: working and committing one piece of a homework at a time.
-{S1} : Sem 1 Tools
-{S2} : Sem 2 Termination
-{S5} : Sem 5 Food
-{SS1} : Talk 1 Tools
-{SS2} : Talk 2 Termination
-{SS3} : Talk 3 Render
-{SS4} : Talk 4 Data
-{SS5} : Talk 5 Food
-{SS6} : Talk 6 Lean Startup
+{PWK1} : Worksheet 1
+{PWK2} : Worksheet 2 (Interface)
+{PWK4} : Worksheet 4 (declaration vs. use)
+{PWK5} : Worksheet 5 (Enums & Encapsulation)
+{PWK5} : Worksheet 5 (Enums, Encapsulation)
 {W1} : Set goals and evaluated.
 {W2} : Set goals and evaluated.
 {W3} : Set goals and evaluated.

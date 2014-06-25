@@ -2,7 +2,7 @@
 public class HuffmanNode implements Comparable<HuffmanNode> {
 	public int frequency;
 	public int character;
-	public String code = "0";
+	public String code = "";
 	public HuffmanNode left;
 	public HuffmanNode right;
 	
@@ -29,7 +29,7 @@ public class HuffmanNode implements Comparable<HuffmanNode> {
 	    	root.left.code= root.code + "0";
 	        traverse (root.left);
 	    }
-	    System.out.println(root.frequency);
+	    //System.out.println(root.character);
 	    if (root.right != null){
 	    	root.right.code= root.code + "1";
 	        traverse (root.right);
