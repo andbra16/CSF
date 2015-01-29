@@ -1,0 +1,24 @@
+1)  0x7F006628 - 4 bytes = 0x7F006629. The SP register contains the stack pointer.
+
+2) The heap is an area of pre-reserved memory that a program process can use to store data in some variable amount.
+   The heap is usually used to store objects. The heap is stored in computer RAM just like the stack.
+   
+3) The 8088 has 8 general purpose registers. These registers are called: AX, BX, CX, DX, SI, DI, BP, and SP.
+
+4) The Pentium's registers are 32-bit registers instead of 16-bits and have different names. 
+   They are called: EAX, EBX, ECX, EDX, ESI, EDI, EBP, and ESP.
+   
+5) JMP LABEL
+
+6) objdump -d filename
+
+7) A global variable would be stored in the the data segment of memory, while a local variable would be stored on the
+stack segment.
+
+8) The x86 Pentium assembly uses 32-bit registers, has more bus lines, more options, and more instructions than the
+8088.
+
+9) It is easier for the stack to keep track of and manipulate the parameters when they are pushed onto the stack
+in a left-to-right order.
+
+10)#define in C is how you make a constant variable. It is like final in JAVA.

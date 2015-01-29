@@ -1,0 +1,18 @@
+{AHW1} : A hw1
+{AHW2} : A hw2
+{AHW3} : A hw3
+{AHW4} : A hw4
+{AHW5} : A hw5
+{ALAB1} : A lab1
+{ALAB2} : A lab2
+{ALAB3} : A lab 3
+{ALAB4} : A lab4
+{ALAB5} : A lab5
+{ALAB8} : A lab8
+{AMID} : Arch Midterm
+{AWK1} : A Workshop 1
+{AWK2} : A Workshop 2
+{AWK3} : A Workshop 3
+{AWK4} : A Workshop 4
+{AWK5} : A Workshop 5
+{AWK6} : A Workshop 6

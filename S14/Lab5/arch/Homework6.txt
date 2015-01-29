@@ -1,0 +1,54 @@
+10/10  RW
+
+1) The common pin on the 7-segment display was the Vcc pin.
+
+2) The role of the latch pin is used to increment the clock for the shift register and when the latch is low
+it will load data and if its high it won't.
+
+3) Distributed memory refers to a multiple-processor computer system in which each processor has its own private memory.
+For example, Processor one would have memory: v[0:11], P2 : v[12:23], P3: v[24: 35], and etc. Each processor can read and 
+write to the other processor's  private memory, but a message must be sent to that processor and there are checks so that 
+data cannot be written at the same time.
+
+Shared memory multi processors offer a single memory space used by all processors. For example, P1: v[0:24], P2 : v[0:24],
+P3: v[0:24], and etc. Processors can write data to the same memory space at the same time, unless there is a security 
+measure in place like synchronization.
+
+4) Segment registers are used on the Intel 8088 to enable access to more memory and to structure memory access.
+The segment registers are used in unison with virtual memory to allow more memory in virtual memory.
+
+5) I would break the array into fourths and then compute the for loop on each processor for their given arrays. 
+Processor 1 would handle the for loop for the array from a[0] to a[2499]. P2 would handle a[2500] to a[4999].
+P3 would handle a[5000] to [7499]. P4 would handle a[7500] to a[9999].
+
+6) SUB SP, 4       ; SP = SP - 4
+
+7) def mapper(key, value):
+       for i in range(100):
+           Wmr.emit(str(i), str(1))
+           # test which bucket the value falls in
+      
+   def reducer(key, iter):
+       sum = 0
+       for s in iter:
+           sum = sum + int(s)
+       Wmr.emit(key, str(sum))
+
+8) Thread synchronization is the concurrent execution of two or more threads that share critical resources. Threads should 
+be synchronized to avoid critical resource use conflicts. Otherwise, conflicts may arise when parallel-running threads 
+attempt to modify a common variable at the same time. For example, you have three threads - A, B, and C - running 
+at the same time and they need to access variable Z. To avoid conflicts when accessing Z, threads A, B, and C must 
+be synchronized. This ensures that the threads, A, B, and C cannot change the variable Z at the same time or read it
+while it is being changed.
+
+9) Cache coherence is the consistency of shared resource data that ends up stored in multiple local caches.
+
+Client <--> Cache <--->|
+              ^        |
+Coherency-->  |        |___> Memory Resource
+              V        |
+Client <--> Cache <--->|
+
+If the top client has a copy of a memory block from a previous read and the bottom client changes that memory block, 
+the top client could be left with an invalid cache of memory without any notification of the change. Cache coherence 
+is intended to manage such conflicts and maintain consistency between cache and memory.

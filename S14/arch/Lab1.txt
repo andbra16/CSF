@@ -1,0 +1,10 @@
+1) The first two parameters in "ellipse(a, b, c, d)" are the x and y coordinates of where
+the ellipse will be drawn(the center of the ellipse will be at the coordinates).
+
+2) Yes, draw() automatically redraws the background.
+
+3) "fill(255, 0, 0)" will fill the next object you draw with the color red.
+
+4) It moved the circle right about 26 pixels.
+
+5) It rotated the rectangle by about 26 degrees.

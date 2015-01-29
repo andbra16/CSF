@@ -1,0 +1,13 @@
+1) Voltage: an electromotive force or potential difference expressed in volts.
+   Current: a flow of electric charge. In electric circuits this charge is often carried by moving electrons in a wire.
+   Power: supply (a device) with mechanical or electrical energy.
+   
+2) They are related by that fact that they all deal with electrical energy.
+
+3) Resistor: a device having a designed resistance to the passage of an electric current.
+   Diode: a semiconductor device with two terminals, typically allowing the flow of current in one direction only.
+   Potentiometer: a variable resistor with a third adjustable terminal. The potential at the third terminal can be 
+                  adjusted to give any fraction of the potential across the ends of the resistor.
+
+4) Short circuit: an electrical circuit of lower resistance than that of a normal circuit, typically resulting 
+                   from the unintended contact of components and consequent accidental diversion of the current.

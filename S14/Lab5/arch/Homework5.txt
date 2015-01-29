@@ -1,0 +1,74 @@
+10/10  RW
+
+
+1) The von Neumann architecture stores data and program instructions intermixed within the 
+same blocks of memory whereas the Harvard architecture stores data and program instructions in distince memory blocks.
+The Arduino Atmel Mega is a Harvard architecture.
+
+2) Virtual memory stores the program memory in physical memory as an address and a page table converts the virtual address
+to the physical address. (2^32)/(2^10)=2^22 entries (2^3)*2^22= 2^25 bytes needed to hold the page table.
+
+3) MOV AX, 220 puts 220 into the AX register.
+
+ADD AX, [BX] gets the value stored in the address in the register of BX and adds that value to the value in AX and
+stores the sum in AX.
+
+4) a) #1 NEWS: GRRG --> timer     
+      #2 NEWS: YRRY --> sensor
+      #3 NEWS: RGGR --> timer
+      #4 NEWS: RYYR --> sensor
+      
+  b) #1 TNEWS: GGRRR --> timer
+     #2 TNEWS: YGRRR --> sensor
+     #3 TNEWS: RGRRG --> timer
+     #4 TNEWS: RYRRY --> sensor
+     #5 TNEWS: RRGGR --> timer
+     #6 TNEWS: RRYYR --> sensor
+     
+5) STACK:
+    high address
+        p1
+        p2
+      return address --> 4 bytes
+        old BP --> 4 bytes
+        f1 --> 4 bytes
+        x[] --> 2 bytes * 20 = 40 bytes
+        
+        4+4+4+40 = 52 bytes to overwrite return address
+
+6) -----------
+    |         |
+    |          \
+    5v          \
+              |
+              |
+      --------|
+      pin 8   |Resistor
+              |GND
+              
+7) 2^48 bytes
+
+8) 0x41
+
+9) Where you add each byte separately and you don't carry over. The number is just wrapped around in its own partition.
+
+Example: 128 | 128| 130 | 128
+       + 128 | 130| 132 | 129
+         0   |  2 |  6  |  1
+
+
+10) 0.0025/(0.0020*2)= 0.625 (6.25 percent efficiency).
+
+11) The first program would have better cache performance, because you are marching through each element in one array
+and then going to the next array. In the second program you are looking at one element in one array and then going to 
+the next array and looking at one element and atc.
+
+1st Program: Array 1 [every element]
+             Array 2 [every element]
+             Array 3 [every element]
+             etc...
+             
+2nd Program: Array 1 [element 0]
+             Array 2 [element 0]
+             Array 3 [element 0]
+             etc...

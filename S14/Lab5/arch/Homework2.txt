@@ -1,0 +1,22 @@
+1) The 8088 has 8 general purpose registers.
+
+2) The BX register is the full 16-bit general purpose register, but the BX register can be subdivided into two
+8-bit registers called the BH (high) and BL (low) if the programmer wants to use smaller representations than 16-bits.
+
+3) a)0000:0000 = 0x00000 + 0x0000 = 0x00000
+   b)A000:BCD0 = 0xA0000 + 0xBCD0 = 0xABCD0
+   
+4)JMP LABEL
+
+5)ADD AX, 1 (AX = AX + 1)
+
+6) (ADD WORD PTR [4000h], 1) is incrementing the value at 0x4000 in a 16-bit interpretation while
+(ADD BYTE PTR [4000h], 1) is incrementing the value at 0x4000 in a 8-bit interpretation.
+
+7) Not sure what this question is asking...
+
+8) A global variable would be stored in the the data segment of memory, while a local variable would be stored on the
+stack segment.
+
+9) I'm not quite sure, but I would assume it would be easier to keep track of the parameters if they were
+pushed onto the stack in an ordered manner.

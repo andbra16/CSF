@@ -1,0 +1,7 @@
+Mystery.class 
+
+1) bipush 5
+
+2)0000013F
+
+3)isub, sipush 0x0007, iand, invokevirtual 

@@ -1,0 +1,17 @@
+1)Where are the Loops?
+
+Loop from 29 to 85. Exit is 29 to 88.
+Loop from 40 to 79. Exit is 40 to 82.
+
+2) Identify any if-else statements.
+
+There is one if-else.
+
+If-else is at 47. If you meet the requirement you do the steps and at 58
+you goto 76. Else you goto 61.
+
+3)Are there any arrays?
+
+There is one 2D array with dimensions of 100 by 200 that is stored in local 1.
+
+Also, there is an arraylist that is stored in local 2.

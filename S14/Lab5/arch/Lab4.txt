@@ -1,0 +1,11 @@
+1) Green            ||| Red
+   Yellow           ||| Red
+   Red              ||| Red
+   Red              ||| Blinking Yellow
+   Red              ||| Green
+   Red              ||| Yellow
+   Red              ||| Red
+   Blinking Yellow  ||| Red
+   
+3) Add a transition that makes the side that is on green go to yellow then red, then keep both sides on red until 
+the emergency state is over.

@@ -1,0 +1,48 @@
+Joula Chapter 2:
+
+2) Infix: It would calculate (7+1)=8, then it would calculate (8-3)=5, finally it would calculate 8*5=40.
+
+   Rpn (postfix): (7 1 + 8 3 - *), So, it would take 7 and 1 and + to get 8, then it would take 8 and 3 and - to get 5, 
+   then it would take 8 and 5 and * to get 40.
+
+4)  The fetch-execute cycle is more complex on a CISC computer, because a CISC computer has a CISC has more instructions 
+and longer opcodes than a RISC computer. This requires the CISC to have more complex logic and circuitry than an RISC 
+computer in order to read and distinguish (decode) the various instructions.
+
+6)  The disadvantaged of typed arithmetic calculations is that you have to be very specific when inputting your 
+calculations. For instance, if you have two floating point numbers like 10.0 and 8.0, if you use iadd you will not get 
+18.0 because you used the integer add on floating point numbers. So, you have to be very careful to recognize what kind 
+of numbers you are working with so that you can calculate them correctly. The advantages of typed arithmetic 
+calculations is that most of these errors will be caught by the JVM, so you will be able to get precisely the answer 
+you were looking for.
+
+7) The instruction cadd doesn't exist because you could load a constant that is an integer, float, string, etc. and if 
+you tried to add two different types together you would get an error. Because, a constant isn't just one type 
+(int, float, string, double, etc.) you can't have a cadd.
+
+8)  
+   a) sipush 7  (I'm not sure if this is illegal but you are using the push command for 2 bytes when 7 can fit into 
+   just one byte, you should probably use bipush 7)
+
+   b) ldc2 -7  (Illegal: the command is ldc2_w and it should be used on two-word constants, -7 can fit in one word)
+
+   c)bipush 200 (Illegal: 200 is outside the range of a byte(-128 to 127)
+
+9) You can multiply an integer by 8 by using the left shift operation 3 times (because shifting a value one to the 
+left is equivalent to multiplying by two).
+
+10) Just a guess: 
+
+1) use pop to get the last half of the long which turns it into a short and then use i2b to convert the int into a 
+byte which is the smallest 8 bits.
+
+2) use pop2 to get the full long and then use l2i and then i2b to convert the long into an int and then the int 
+into a byte which is the smallest 8 bits.
+
+11) No, you must convert them into matching types. But, you can convert ints into floats and vice versa and you can 
+convert ints into longs and vice versa. Once you have matching types you can do an operation on them.
+
+12) The number that gets divided by is stored as the second element in the stack. If I want (8/3) 8 would be the 
+second element and 3 would be on the top of the stack.
+
+14) a b + c + d + e + 5 /

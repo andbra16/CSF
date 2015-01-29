@@ -1,0 +1,26 @@
+1)SIMD means "single instruction, multiple data." So, SIMD describes doing the same operation independently on
+several different pieces of data. 
+
+MIMD means "multiple instruction, multiple data." So, MIMD would be like one
+pipeline performing a floating point multiplication on a piece of data, while another pipeline could be loading a register
+on another piece of data. 
+
+A GPU uses SIMD because SIMD is a fast way of moving large blocks of data fromm main memory to 
+the graphics display. SIMD essentially performs the same instruction for graphics on multiple pieces of data at the same
+time.
+
+2)Temporal locality is the concept that a resource that is referenced at one point in time will be referenced 
+again sometime in the near future.
+
+Spatial locality is the concept that likelihood of referencing a resource is higher if a resource near it 
+was just referenced. 
+
+Example: for(i = 0; i < 20; i++)
+           for(j = 0; j < 10; j++)
+               a[i] = a[i]*j;
+               
+          In this example a[i] is a good example of spatial locality because a memory location near the one just used
+          is being referenced each time through the loop. Example: a[0] is used, then a[1], then a[2] and etc.
+          
+          In this example a[i] is also a good example of temporal locality because the memory location just referenced
+          is being used 10 times through each loop. Example: a[i] = a[i]*0, a[i] = a[i]*1, a[i]= a[i]*2, and etc.
