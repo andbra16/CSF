@@ -1,0 +1,37 @@
+1) Microcontrollers are usually found in embedded systems with specialized single-pupose code. 
+They tend to be smaller, less capable computers, and they are usually single-chip gadgets.
+
+3) The Atmel AVR cannot compute floating point numbers, and can only compute very small integers. All of
+Atmel AVR's memory is cached memory.
+
+4) The Atmel is an example of the Harvard architecture because it has different physical sotrage banks and 
+different data buses which allows it to both read an instruction and perform a data memory access at the same time.
+
+5) RAM can be both read from and written to, while ROM can only be read from.
+
+6) SRAM costs more per byte than DRAM because each memory bit on SRAM typically requires about 6 to 10 transistors.
+So, SRAM takes up 10 times as much space on the chip and costs up to 10 times as much money as DRAM.
+
+7) The Atemel AVR has three memory banks: the FLASH ROM memory bank, the SRAM memory bank, and the EEPROM memory bank.
+The FLASH ROM memory bank is a read-only bank used to store program code since it is nonvolatile. The SRAM memory
+bank is used for reading/writing program variables because it is quick. The EEPROM bank is used for long-term storage
+of program data that must survive a power outage.
+
+8) A watchdog timer is used to prevent the system from locking up.
+
+9) "memory mapped I/0" means that the inputs and outputs have a specific addressable location in the I/O memory
+bank.
+
+10) The Atmel would write to the Data Register assigned to the LED and send an eletrical signal to the outpins of the LED.
+
+11) You could add a 7th instruction for no light and when you triggered emergency it could loop between the 6th and 
+7th instruction making the light flash red and then off.
+
+12) EPROM is a type of ROM that stands for "Erasable Programmable ROM" which can be reprogrammed and reused unlike PROM.
+EEPROM is a variation of EPROM that stands for "Electronically Erasable Programmable ROM" which uses a localized
+electrical field to erase its memory, unlike EPROM which requires a ultraviolet light chamber.
+
+13) UART stands for "Universal Asynchronous Receiver and Transmitter" which is used for large-scale data transmission/
+reception.
+
+14) An interrupt is used to reset the program from a lockup, it is usually programmed with a JUMP command.

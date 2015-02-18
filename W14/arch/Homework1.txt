@@ -1,0 +1,49 @@
+Joula Chapter 1:
+
+4) 216 different patterns. 
+Two's complement: -215 to 215-1
+Unsigned: 0 to 216-1
+
+5) 
+ a) 0x9CEE  -25,362
+ b) 0xFFFF -1
+ c) 0x00FF 255
+ d) 0x4884 18,564
+ e) 0xFF00 256
+ f) 0xCAFE -13,570
+
+6)
+a) 2.5
+b) 8.125
+c) -8.375
+d) -0.0625
+e) 0.33333
+f) 0.5
+g) 125.25
+e) 68.69999694824219
+f) 100000.0
+g) 1.0 x 107
+
+7)
+a) 0x40000000
+b) 0x42340000
+c) 0x42740A3D
+d) 0xC1930000
+e) 0xC0D5C28F
+f) 0x47800000
+g) 0x358637BD
+h) 0x4B189680
+
+8)Yes, there are numbers that can be represented as 32-bit integers that can't be represented as a 32-bit 
+IEEE floating point number.
+
+9) 0x46726564
+
+10) Easy
+
+11)  This typo is the worst... (can't understand the question). I
+I'll guess its trying to say: The more 1's there are in a binary number, the larger it is.
+This statement would be False, because 1000 is larger than 0111 and it has less 1's. The placement 
+of the one is much important than the 
+number of ones because a higher placement means a higher exponent of 2.
+

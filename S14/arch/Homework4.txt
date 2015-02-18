@@ -1,0 +1,27 @@
+1) Virtual memory is a memory management technique that is implemented using both hardware and software.
+   It maps memory addresses used by a program, called virtual addresses, into physical addresses in computer memory.
+   Virtual memory is useful, because it allows you to use more memory than you physically have.
+
+2) A page table is the data structure used by a virtual memory system in a computer operating system to store the 
+   mapping between virtual addresses and physical addresses.
+
+3) A page fault (sometimes #pf or pf) is a trap to the software raised by the hardware when a program accesses a 
+   page that is mapped in the virtual address space, but not loaded in physical memory.
+
+4) A Pentium can use 16, 32, or 46-48 bits for addressing. How many bits it uses depends on which Pentium you
+   are using and that Pentium's register sizes (16, 32, or 64 bits).
+
+5)   | 128 |  15 |  22 |  240 |
+   + | 180 |   6 |  33 |  128 |
+	
+     |  52 |  21 |  55 |  112 |
+	  
+     |0x80 |0x0F |0x16 | 0xF0 |
+   + |0xB4 |0x06 |0x21 | 0x80 |
+	
+     |0x34 |0x15 |0x37 | 0x70 |
+     
+6)   | 128 |  15 |  22 |  240 |
+   + | 180 |   6 |  33 |  128 |
+  
+     | 308 | 21  |  55 |  368 |
